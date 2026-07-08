@@ -36,8 +36,13 @@ app.use((err, _req, res, _next) => {
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/novawork')
   .then(() => {
     console.log('MongoDB connected');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
   .catch((error) => {
     console.error('MongoDB connection failed', error);
   });
+
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+export default app;
