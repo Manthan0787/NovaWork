@@ -2,11 +2,24 @@
   "name": "project-manager-suite",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "workspaces": ["client", "server"],
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace client\" \"npm run dev --workspace server\"",
     "build": "npm run build --workspace client && npm run build --workspace server",
     "install:all": "npm install"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^8.0.5",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.1",
+    "nodemailer": "^6.8.0",
+    "socket.io": "^4.5.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
